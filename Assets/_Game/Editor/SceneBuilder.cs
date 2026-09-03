@@ -525,7 +525,6 @@ namespace BlackHorizon.EditorTools
             var collider = go.GetComponent<Collider>();
             if (collider != null) Object.DestroyImmediate(collider);
             go.layer = 2; // Ignore Raycast
-            SceneManager.MoveGameObjectToScene(go, scene);
             go.SetActive(false); // hidden; intro enables it
             return go;
         }
