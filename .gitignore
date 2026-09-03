@@ -1,0 +1,40 @@
+# ===== Unity generated =====
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+[Mm]emoryCaptures/
+
+# ===== Plastic SCM (upstream is git/GitHub) =====
+.plastic/
+ignore.conf
+plastic_sources/
+
+# Never ignore these (project settings, packages, scripts)
+!Assets/
+!.gitignore
+
+# ===== OS / IDE =====
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+.idea/
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.userprefs
+
+# ===== Crash / runtime =====
+sysinfo.txt
+*.stackdump
+crashlytics-build.properties
+
+# ===== Avoid importing .meta for generated temp =====
+cvs
+*.orig
