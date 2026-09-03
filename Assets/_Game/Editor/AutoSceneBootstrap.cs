@@ -36,9 +36,23 @@ namespace BlackHorizon.EditorTools
                 return;
             }
 
-            SessionState.SetBool(BuildKey, true);
-            SceneBuilder.BuildMissionScene();
-            Debug.Log("[Black Horizon] Auto-built the playable MVP scene (Operation Dustline).");
+            try
+            {
+                SceneBuilder.BuildMissionScene();
+                if (System.IO.File.Exists(ScenePath))
+                {
+                    SessionState.SetBool(BuildKey, true);
+                    Debug.Log("[Black Horizon] Auto-built the playable MVP scene (Operation Dustline).");
+                }
+                else
+                {
+                    Debug.LogWarning("[Black Horizon] Scene build reported completion but the scene file is missing; will retry on next editor load.");
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("[Black Horizon] Automated scene build failed and will retry on next editor load.\n" + e);
+            }
         }
 
         [MenuItem("Black Horizon/Rebuild MVP Scene (manual)")]
