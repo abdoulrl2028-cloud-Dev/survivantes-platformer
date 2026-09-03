@@ -14,7 +14,6 @@ namespace BlackHorizon.EditorTools
     public static class AutoSceneBootstrap
     {
         private const string ScenePath = "Assets/_Game/Scenes/Missions/OperationDustline.unity";
-        private const string BuildKey = "BlackHorizon.AutoBuildMVP";
 
         static AutoSceneBootstrap()
         {
@@ -23,25 +22,19 @@ namespace BlackHorizon.EditorTools
 
         private static void TryAutoBuild()
         {
-            // Only run in a healthy state, once, and when the scene is missing.
+            // Only run in a healthy state.
             if (EditorApplication.isCompiling || EditorApplication.isPlayingOrWillChangePlaymode)
                 return;
 
-            bool alreadyBuilt = SessionState.GetBool(BuildKey, false);
-            if (alreadyBuilt) return;
-
+            // Idempotent: once the scene exists we never touch it again.
             if (System.IO.File.Exists(ScenePath))
-            {
-                SessionState.SetBool(BuildKey, true);
                 return;
-            }
 
             try
             {
                 SceneBuilder.BuildMissionScene();
                 if (System.IO.File.Exists(ScenePath))
                 {
-                    SessionState.SetBool(BuildKey, true);
                     Debug.Log("[Black Horizon] Auto-built the playable MVP scene (Operation Dustline).");
                 }
                 else
@@ -59,7 +52,6 @@ namespace BlackHorizon.EditorTools
         public static void RebuildManually()
         {
             SceneBuilder.BuildMissionScene();
-            SessionState.SetBool(BuildKey, true);
         }
     }
 }
