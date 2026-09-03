@@ -186,6 +186,7 @@ namespace BlackHorizon.AI
         private void HandleDeath(GameObject source)
         {
             EnterState(AIState.Dead);
+            EventBus.FireEnemyKilled(gameObject);
             _agent.isStopped = true;
             if (body != null) Destroy(body, 2f);
             if (_attackRoutine != null) StopCoroutine(_attackRoutine);

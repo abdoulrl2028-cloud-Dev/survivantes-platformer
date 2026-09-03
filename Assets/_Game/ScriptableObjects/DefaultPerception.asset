@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e6765e9a5bc8d7c99a60446054fade, type: 3}
+  m_Name: DefaultPerception
+  m_EditorClassIdentifier: 
+  sightRange: 30
+  fieldOfView: 90
+  lineOfSightMask:
+    serializedVersion: 2
+    m_Bits: 256
+  detectSpeed: 8
+  hearingRange: 25
+  hearingDelay: 0.6
+  searchDuration: 6
+  searchRadius: 10
+  attackRange: 28
+  attackCooldown: 0.9
+  loseSightTime: 3.5
+  patrolSpeed: 2.5
+  combatSpeed: 5.2
+  turnSpeed: 540

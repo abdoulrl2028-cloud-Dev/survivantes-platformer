@@ -16,6 +16,7 @@ namespace BlackHorizon.Systems
         public static event Action<string> ObjectiveUpdated;      // formatted objective text
         public static event Action MissionCompleted;
         public static event Action MissionFailed;
+        public static event Action<GameObject> OnEnemyKilled;     // an enemy was eliminated (for mission objectives)
 
         public static void PauseGame(bool paused) => GamePaused?.Invoke(paused);
         public static void FirePlayerDied() => PlayerDied?.Invoke();
@@ -24,5 +25,6 @@ namespace BlackHorizon.Systems
         public static void FireObjective(string text) => ObjectiveUpdated?.Invoke(text);
         public static void FireMissionCompleted() => MissionCompleted?.Invoke();
         public static void FireMissionFailed() => MissionFailed?.Invoke();
+        public static void FireEnemyKilled(GameObject enemy) => OnEnemyKilled?.Invoke(enemy);
     }
 }

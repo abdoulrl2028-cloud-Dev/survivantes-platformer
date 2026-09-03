@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04f1743c882ac30cb185698f2277756, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  weaponName: Sentinel-9 Sidearm
+  description: Fictional semi-auto sidearm.
+  damage: 28
+  range: 50
+  fireRate: 4.5
+  automatic: 0
+  spread: 0.8
+  spreadAimMultiplier: 0.3
+  pellets: 1
+  magazineSize: 15
+  reserveAmmo: 60
+  reloadTime: 1.4
+  recoilForce: 0.7
+  recoilKick: {x: 0.25, y: 0.8}
+  recoilRecovery: 6
+  moveSpreadMultiplier: 1.6
+  aimSpeed: 12
+  hipToAimFov: 15
+  viewModelPrefab: {fileID: 0}
+  aimPosition: {x: 0, y: -0.08, z: 0.25}
+  hipPosition: {x: 0.18, y: -0.18, z: 0.35}
+  muzzlePoint: {fileID: 0}
+  muzzleFlashPrefab: {fileID: 0}
+  impactPrefab: {fileID: 0}
+  decalPrefab: {fileID: 0}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  bulletForce: 10

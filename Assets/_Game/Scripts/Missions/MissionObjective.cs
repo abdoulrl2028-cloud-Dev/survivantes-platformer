@@ -40,18 +40,24 @@ namespace BlackHorizon.Missions
         {
             State = ObjectiveState.Active;
             Progress = 0;
+            if (type == ObjectiveType.EliminateEnemies)
+            {
+                EventBus.OnEnemyKilled += HandleEnemyKilled;
+            }
             EventBus.FireObjective(BuildText());
         }
 
         public void Deactivate()
         {
             State = ObjectiveState.Inactive;
+            EventBus.OnEnemyKilled -= HandleEnemyKilled;
         }
 
         public void Complete()
         {
             if (State == ObjectiveState.Completed) return;
             State = ObjectiveState.Completed;
+            EventBus.OnEnemyKilled -= HandleEnemyKilled;
             OnCompleted?.Invoke(this);
         }
 
@@ -83,6 +89,14 @@ namespace BlackHorizon.Missions
             {
                 Complete();
             }
+        }
+
+        private void HandleEnemyKilled(GameObject enemy)
+        {
+            if (State != ObjectiveState.Active) return;
+            if (type != ObjectiveType.EliminateEnemies) return;
+            ProgressTo(1);
+            if (Progress >= requiredCount) Complete();
         }
 
         /// <summary>Called when an interactable target is used.</summary>
